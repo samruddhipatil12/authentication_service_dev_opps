@@ -1,6 +1,3 @@
-default_install_hook_types:
- [pre-commit]
-
 repos:
   - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
     rev: v2.12.0
@@ -8,3 +5,11 @@ repos:
       - id: pretty-format-java
         args: [--autofix, --google-java-formatter-version=1.21.0]
         files: ^(?!(Product\.java)).*$
+
+  - repo: local
+    hooks:
+      - id: check_commiter_email_id
+        name: Check committer email id
+        entry: python check_email_domain.py
+        language: python
+        stages: [pre-commit]
