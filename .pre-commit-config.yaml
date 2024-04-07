@@ -13,3 +13,4 @@ repos:
         entry: python check_name_domain.py
         language: python
         stages: [pre-commit]
+
